@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-11">
+      <form method="post" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+        <p>Already have an account? <a href="{% url 'users:login_view' %}">Log in here</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
